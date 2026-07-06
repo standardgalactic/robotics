@@ -1,0 +1,148 @@
+\contentsline {section}{\numberline {1}Charge, Field, and the Scalar Potential $\Phi $}{6}{section.1}%
+\contentsline {section}{\numberline {2}Kirchhoff's Laws as Conservation Principles}{6}{section.2}%
+\contentsline {section}{\numberline {3}Passive Elements as Constraint Operators}{7}{section.3}%
+\contentsline {section}{\numberline {4}Admissibility of a Circuit State}{7}{section.4}%
+\contentsline {section}{\numberline {5}Phasors as Amplitwist Operators}{9}{section.5}%
+\contentsline {subsection}{\numberline {5.1}The Claim, Stated Without Interpretation}{9}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Operator Addition Is Not Operator Composition}{10}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Resonance as the Vanishing of Twist}{11}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}What This Chapter Does Not Yet Give}{11}{subsection.5.4}%
+\contentsline {subsection}{\numberline {5.5}Verdict}{12}{subsection.5.5}%
+\contentsline {section}{\numberline {6}Two-Port Networks as Amplitwist Chains}{13}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Cascading Is Matrix Composition, Not Scalar Composition}{13}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Where the Scalar Picture Is Recovered Exactly}{14}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Assembly Index of a Two-Port Cascade}{15}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}Where the Scalar Picture Breaks Down}{15}{subsection.6.4}%
+\contentsline {subsection}{\numberline {6.5}Verdict}{16}{subsection.6.5}%
+\contentsline {section}{\numberline {7}Resonance as an Amplitwist Fixed Point}{17}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Resonance in the Standard Vocabulary}{17}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}The Twist of an Impedance Operator}{17}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Fixed Points of Operator Action}{18}{subsection.7.3}%
+\contentsline {subsection}{\numberline {7.4}Resonance and Admissibility}{19}{subsection.7.4}%
+\contentsline {subsection}{\numberline {7.5}Resonance and Synchronization}{19}{subsection.7.5}%
+\contentsline {subsection}{\numberline {7.6}Where the Fixed-Point Picture Breaks Down}{19}{subsection.7.6}%
+\contentsline {subsection}{\numberline {7.7}Verdict}{20}{subsection.7.7}%
+\contentsline {section}{\numberline {8}Filters as Admissibility Gates in Frequency Space}{20}{section.8}%
+\contentsline {subsection}{\numberline {8.1}A Filter as a Selection Operator}{20}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Admissibility in Frequency Space}{21}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.3}Low-Pass Filters as Continuation Preservers}{21}{subsection.8.3}%
+\contentsline {subsection}{\numberline {8.4}Band-Pass Filters and Admissibility Windows}{21}{subsection.8.4}%
+\contentsline {subsection}{\numberline {8.5}Stopbands as Refusal Regions}{22}{subsection.8.5}%
+\contentsline {subsection}{\numberline {8.6}Bandwidth as Admissibility Volume}{22}{subsection.8.6}%
+\contentsline {subsection}{\numberline {8.7}Transition Regions and Boundary Effects}{22}{subsection.8.7}%
+\contentsline {subsection}{\numberline {8.8}Resonance and Filtering}{23}{subsection.8.8}%
+\contentsline {subsection}{\numberline {8.9}Where the Admissibility Picture Becomes Incomplete}{23}{subsection.8.9}%
+\contentsline {subsection}{\numberline {8.10}Verdict}{23}{subsection.8.10}%
+\contentsline {section}{\numberline {9}The Diode as an Irreversible Spherepop Operator}{23}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Recalling the Pop Operator}{24}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}The Ideal Diode as Pop Paired with Refuse}{24}{subsection.9.2}%
+\contentsline {subsection}{\numberline {9.3}Irreversibility Is Not an Incidental Feature: Rectification Requires It}{25}{subsection.9.3}%
+\contentsline {subsection}{\numberline {9.4}Dissipation: Where Entropy Enters This Book}{26}{subsection.9.4}%
+\contentsline {subsection}{\numberline {9.5}Where the Two-State Model Breaks Down}{26}{subsection.9.5}%
+\contentsline {subsection}{\numberline {9.6}Verdict}{27}{subsection.9.6}%
+\contentsline {section}{Histories Before States}{28}{section*.3}%
+\contentsline {section}{\numberline {10}BJT/FET as Constrained Amplification Fields}{32}{section.10}%
+\contentsline {subsection}{\numberline {10.1}The Active Region Is Invertible}{32}{subsection.10.1}%
+\contentsline {subsection}{\numberline {10.2}Cutoff and Saturation: Where Collapse Returns}{33}{subsection.10.2}%
+\contentsline {subsection}{\numberline {10.3}The FET: A Different Nonlinearity, the Same Structure}{33}{subsection.10.3}%
+\contentsline {subsection}{\numberline {10.4}Verdict}{34}{subsection.10.4}%
+\contentsline {section}{\numberline {11}Op-Amps as Idealized Admissibility Engines}{34}{section.11}%
+\contentsline {subsection}{\numberline {11.1}The Golden Rules as Contextual Admissibility}{34}{subsection.11.1}%
+\contentsline {subsection}{\numberline {11.2}The Integrator: Where the Histories Chapter Becomes a Design Choice}{35}{subsection.11.2}%
+\contentsline {subsection}{\numberline {11.3}The Comparator: Where Admissibility Gives Way to Collapse}{35}{subsection.11.3}%
+\contentsline {subsection}{\numberline {11.4}Verdict}{35}{subsection.11.4}%
+\contentsline {section}{\numberline {12}Log/Exponential Amplifiers as Compression Operators}{36}{section.12}%
+\contentsline {subsection}{\numberline {12.1}The Log Amplifier as Dynamic-Range Compression}{36}{subsection.12.1}%
+\contentsline {subsection}{\numberline {12.2}The Log-Antilog Multiplier and Chapter 6's Composition Law}{36}{subsection.12.2}%
+\contentsline {subsection}{\numberline {12.3}Where This Chapter's Idealizations Fail}{37}{subsection.12.3}%
+\contentsline {subsection}{\numberline {12.4}Verdict}{37}{subsection.12.4}%
+\contentsline {section}{\numberline {13}Feedback as Recursive Continuation}{38}{section.13}%
+\contentsline {subsection}{\numberline {13.1}The Closed Loop as a Fixed-Point Equation}{38}{subsection.13.1}%
+\contentsline {subsection}{\numberline {13.2}Feedback in Time: Self-Reference as an ODE}{38}{subsection.13.2}%
+\contentsline {subsection}{\numberline {13.3}A Brief, Deferred Note on History}{39}{subsection.13.3}%
+\contentsline {section}{\numberline {14}The Barkhausen Criterion as an Admissibility Condition}{39}{section.14}%
+\contentsline {subsection}{\numberline {14.1}The Criterion, Recalled}{39}{subsection.14.1}%
+\contentsline {subsection}{\numberline {14.2}The Criterion Is the Linear Onset Condition for a Hopf Bifurcation}{39}{subsection.14.2}%
+\contentsline {subsection}{\numberline {14.3}Necessary, Not Sufficient: Startup Requires More}{40}{subsection.14.3}%
+\contentsline {subsection}{\numberline {14.4}Admissibility, Named Precisely}{40}{subsection.14.4}%
+\contentsline {subsection}{\numberline {14.5}Where This Chapter's Picture Breaks Down}{41}{subsection.14.5}%
+\contentsline {subsection}{\numberline {14.6}Verdict}{41}{subsection.14.6}%
+\contentsline {section}{\numberline {15}Oscillator Circuits as Self-Sustaining Amplitwist Loops}{42}{section.15}%
+\contentsline {subsection}{\numberline {15.1}The General Structure, Recalled and Specialized}{43}{subsection.15.1}%
+\contentsline {subsection}{\numberline {15.2}The RC Phase-Shift Oscillator}{43}{subsection.15.2}%
+\contentsline {subsection}{\numberline {15.3}The LC (Hartley) Oscillator}{44}{subsection.15.3}%
+\contentsline {subsection}{\numberline {15.4}The Crystal Oscillator}{44}{subsection.15.4}%
+\contentsline {subsection}{\numberline {15.5}Amplitude Self-Limiting, Concretely}{45}{subsection.15.5}%
+\contentsline {subsection}{\numberline {15.6}Where This Chapter's Idealizations Break Down}{45}{subsection.15.6}%
+\contentsline {subsection}{\numberline {15.7}Verdict}{45}{subsection.15.7}%
+\contentsline {section}{Synchronization: From Coupled Oscillators to Network Coherence}{46}{section*.9}%
+\contentsline {section}{\numberline {16}The Phase-Locked Loop as Engineered Continuation}{49}{section.16}%
+\contentsline {subsection}{\numberline {16.1}The Loop, in Block Form}{50}{subsection.16.1}%
+\contentsline {subsection}{\numberline {16.2}The Simplest Case Is Exactly Adler's Equation}{50}{subsection.16.2}%
+\contentsline {subsection}{\numberline {16.3}What Engineering the Coupling Buys: An Integrator}{51}{subsection.16.3}%
+\contentsline {subsection}{\numberline {16.4}A Second Extension: Capture Range}{52}{subsection.16.4}%
+\contentsline {subsection}{\numberline {16.5}Failure Modes Specific to This Chapter}{52}{subsection.16.5}%
+\contentsline {subsection}{\numberline {16.6}Verdict}{52}{subsection.16.6}%
+\contentsline {section}{\numberline {17}Digital Logic as Spherepop Collapse}{53}{section.17}%
+\contentsline {subsection}{\numberline {17.1}Every Standard Logic Gate Is a Pop Operator}{53}{subsection.17.1}%
+\contentsline {subsection}{\numberline {17.2}Not All Collapses Are Equal}{53}{subsection.17.2}%
+\contentsline {subsection}{\numberline {17.3}Landauer's Bound, Properly Earned Here}{54}{subsection.17.3}%
+\contentsline {subsection}{\numberline {17.4}Reversible Gates: The Exception That Proves the Rule}{55}{subsection.17.4}%
+\contentsline {subsection}{\numberline {17.5}Sequential Logic: Where History Re-enters}{55}{subsection.17.5}%
+\contentsline {subsection}{\numberline {17.6}Failure Modes Specific to This Chapter}{55}{subsection.17.6}%
+\contentsline {subsection}{\numberline {17.7}Verdict}{56}{subsection.17.7}%
+\contentsline {section}{\numberline {18}Clock Distribution, Skew, and Domain Crossing}{56}{section.18}%
+\contentsline {subsection}{\numberline {18.1}Clock Skew Is Deterministic, Not Statistical}{56}{subsection.18.1}%
+\contentsline {subsection}{\numberline {18.2}Setup and Hold as a Joint Admissibility Criterion}{57}{subsection.18.2}%
+\contentsline {subsection}{\numberline {18.3}Clock Domain Crossing: Where Chapter 17's Metastability Is Unavoidable}{58}{subsection.18.3}%
+\contentsline {subsection}{\numberline {18.4}Distributed Synchronization: A Direct Application of an Earlier Chapter}{58}{subsection.18.4}%
+\contentsline {subsection}{\numberline {18.5}Failure Modes and Limitations}{59}{subsection.18.5}%
+\contentsline {subsection}{\numberline {18.6}Verdict}{59}{subsection.18.6}%
+\contentsline {section}{\numberline {19}Memory and Repair}{59}{section.19}%
+\contentsline {subsection}{\numberline {19.1}DRAM as Continuously Repaired History}{60}{subsection.19.1}%
+\contentsline {subsection}{\numberline {19.2}Error-Correcting Memory as the Repair Chain, Concretely}{60}{subsection.19.2}%
+\contentsline {subsection}{\numberline {19.3}Silent Miscorrection: When Repair Produces a Wrong, Admissible History}{61}{subsection.19.3}%
+\contentsline {subsection}{\numberline {19.4}Failure Modes and Limitations}{62}{subsection.19.4}%
+\contentsline {subsection}{\numberline {19.5}Verdict}{62}{subsection.19.5}%
+\contentsline {section}{\numberline {20}Noise as Entropic Production}{62}{section.20}%
+\contentsline {subsection}{\numberline {20.1}Entropy Production in a Dissipative Circuit}{63}{subsection.20.1}%
+\contentsline {subsection}{\numberline {20.2}The Same Resistors That Dissipate Also Fluctuate}{63}{subsection.20.2}%
+\contentsline {subsection}{\numberline {20.3}Shot Noise: A Second, Distinct Mechanism}{64}{subsection.20.3}%
+\contentsline {subsection}{\numberline {20.4}Reactive Elements Are, Ideally, Silent}{64}{subsection.20.4}%
+\contentsline {subsection}{\numberline {20.5}Where This Chapter's Picture Is Incomplete}{65}{subsection.20.5}%
+\contentsline {subsection}{\numberline {20.6}Verdict}{65}{subsection.20.6}%
+\contentsline {section}{\numberline {21}Signal-to-Noise Ratio and the Compactness Criterion}{65}{section.21}%
+\contentsline {subsection}{\numberline {21.1}Signal and Noise as Competing Components}{66}{subsection.21.1}%
+\contentsline {subsection}{\numberline {21.2}The Recoverability Interpretation}{66}{subsection.21.2}%
+\contentsline {subsection}{\numberline {21.3}Distinguishability and Admissibility}{66}{subsection.21.3}%
+\contentsline {subsection}{\numberline {21.4}Noise as Compression Pressure}{67}{subsection.21.4}%
+\contentsline {subsection}{\numberline {21.5}Shannon Capacity as an Admissibility Volume}{67}{subsection.21.5}%
+\contentsline {subsection}{\numberline {21.6}The Compactness Criterion}{68}{subsection.21.6}%
+\contentsline {subsection}{\numberline {21.7}A Circuit-Theoretic Example}{68}{subsection.21.7}%
+\contentsline {subsection}{\numberline {21.8}Relation to Earlier Chapters}{68}{subsection.21.8}%
+\contentsline {subsection}{\numberline {21.9}Where the Compactness Picture Breaks Down}{68}{subsection.21.9}%
+\contentsline {subsection}{\numberline {21.10}Verdict}{69}{subsection.21.10}%
+\contentsline {section}{\numberline {22}Failure Modes and Limitations}{69}{section.22}%
+\contentsline {subsection}{\numberline {22.1}What This Book Actually Claims}{69}{subsection.22.1}%
+\contentsline {subsection}{\numberline {22.2}Failure Mode I: Idle Renaming}{70}{subsection.22.2}%
+\contentsline {subsection}{\numberline {22.3}Failure Mode II: Breakdown of Scalar Amplitwist Structure}{70}{subsection.22.3}%
+\contentsline {subsection}{\numberline {22.4}Failure Mode III: Non-Sinusoidal Regimes}{70}{subsection.22.4}%
+\contentsline {subsection}{\numberline {22.5}Failure Mode IV: Adaptive Admissibility}{71}{subsection.22.5}%
+\contentsline {subsection}{\numberline {22.6}Failure Mode V: Lock Loss and Synchronization Collapse}{71}{subsection.22.6}%
+\contentsline {subsection}{\numberline {22.7}Failure Mode VI: Entropy Without Dissipation}{71}{subsection.22.7}%
+\contentsline {subsection}{\numberline {22.8}Failure Mode VII: History Without Continuation}{72}{subsection.22.8}%
+\contentsline {subsection}{\numberline {22.9}A Compactness Criterion for the Framework Itself}{72}{subsection.22.9}%
+\contentsline {subsection}{\numberline {22.10}Summary}{72}{subsection.22.10}%
+\contentsline {section}{\numberline {23}Two-Port Cascades and Assembly Index: A Comparative Note}{73}{section.23}%
+\contentsline {subsection}{\numberline {23.1}Two Different Composition Operations, One Shared Name}{73}{subsection.23.1}%
+\contentsline {subsection}{\numberline {23.2}A Natural, Unresolved Extension}{74}{subsection.23.2}%
+\contentsline {subsection}{\numberline {23.3}Verdict}{74}{subsection.23.3}%
+\contentsline {section}{\numberline {24}Open Problems}{74}{section.24}%
+\contentsline {subsection}{\numberline {24.1}The Full Matrix Case}{74}{subsection.24.1}%
+\contentsline {subsection}{\numberline {24.2}Nonequilibrium Entropy and the Diode}{75}{subsection.24.2}%
+\contentsline {subsection}{\numberline {24.3}Non-Periodic and Transient Behavior}{75}{subsection.24.3}%
+\contentsline {subsection}{\numberline {24.4}Reversible and Adiabatic Circuits}{75}{subsection.24.4}%
+\contentsline {subsection}{\numberline {24.5}Correlated, Multi-Cell Failure and Repair}{75}{subsection.24.5}%
+\contentsline {subsection}{\numberline {24.6}Admissibility as a Design Methodology}{76}{subsection.24.6}%
+\contentsline {subsection}{\numberline {24.7}Beyond Circuits}{76}{subsection.24.7}%
+\contentsline {section}{Appendix: A Classification of This Book's Claims}{76}{section*.16}%

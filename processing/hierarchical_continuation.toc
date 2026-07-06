@@ -1,0 +1,39 @@
+\contentsline {section}{\numberline {1}Introduction: State-Based versus Trajectory-Based Control}{3}{section.1}%
+\contentsline {subsection}{\numberline {1.1}The State-Centric Default}{3}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}The Trajectory-Centric Alternative}{3}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Thesis Statement}{4}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.4}Scope and Epistemic Status}{4}{subsection.1.4}%
+\contentsline {section}{\numberline {2}Historical Background: Oscillators, CPGs, and Hierarchical Coordination}{5}{section.2}%
+\contentsline {subsection}{\numberline {2.1}CPGs in Biology}{5}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}CPGs in Robotics}{6}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}The Kuramoto Model}{6}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}CPGs Were Trajectory-Centric Before Any Geometric Reading}{7}{subsection.2.4}%
+\contentsline {section}{\numberline {3}Amplitwist Operators as Local Trajectory Descriptions}{7}{section.3}%
+\contentsline {subsection}{\numberline {3.1}The Amplitwist Decomposition, Recalled}{8}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}From a Single Oscillator to a Coupled Phase Field}{8}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Hierarchical Composition of Amplitwist Fields}{10}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}What This Section Does Not Yet Claim}{10}{subsection.3.4}%
+\contentsline {section}{\numberline {4}Composition and Hierarchy of Amplitwist Operators}{11}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Coupling Functionals Beyond the Minimal Case}{11}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}The Assembly Index of an Amplitwist Chain}{12}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Law Realism Applied to the Coupling Functional}{13}{subsection.4.3}%
+\contentsline {section}{\numberline {5}Locomotion as Hierarchical Continuation}{13}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Balance as Continuously Regenerated Coherence}{14}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Worked Case: Bipedal Walking as a Two-Level Chain}{14}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Relation to Recursive Continuation and Autopoiesis}{15}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Trajectories Versus Histories}{16}{subsection.5.4}%
+\contentsline {section}{\numberline {6}Failure Modes and Limitations}{16}{section.6}%
+\contentsline {subsection}{\numberline {6.1}The Compactness Criterion}{17}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Ground-Contact Discontinuities}{18}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Balance Recovery as the Decisive Test}{19}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}Summary}{20}{subsection.6.4}%
+\contentsline {section}{\numberline {7}Predictions and Empirical Tests}{21}{section.7}%
+\contentsline {subsection}{\numberline {7.1}An Operational Estimator for $r^{(n)}(t)$}{21}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Operationalizing the Ground-Contact Conjecture}{21}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Operationalizing the Balance-Recovery Conjecture}{22}{subsection.7.3}%
+\contentsline {subsection}{\numberline {7.4}A Minimal Experiment}{23}{subsection.7.4}%
+\contentsline {section}{\numberline {8}Broader Implications for Control Architectures}{23}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Operator-Generated Control Outside Locomotion}{23}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}The General Pattern, and a Note on Auditory Grouping}{24}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.3}Open Problems}{24}{subsection.8.3}%
+\contentsline {subsection}{\numberline {8.4}Closing Remark}{25}{subsection.8.4}%

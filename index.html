@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Continuation Geometry</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+html,body{
+  width:100%;height:100%;
+  background:#000;
+  font-family:monospace;
+  color:#eee;
+  overflow:hidden;
+  touch-action:manipulation;
+}
+
+body{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+}
+
+/* CRT vignette */
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:900;
+  background:radial-gradient(ellipse at center,transparent 55%,rgba(0,0,0,.72) 100%);
+}
+
+/* scanlines */
+body::after{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:901;
+  background:repeating-linear-gradient(
+    to bottom,
+    rgba(255,255,255,.018) 0px,rgba(255,255,255,.018) 1px,
+    transparent 1px,transparent 3px
+  );
+}
+
+#screen{
+  position:fixed;inset:0;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  will-change:transform;
+}
+
+#title{
+  position:fixed;top:16px;left:0;right:0;
+  text-align:center;
+  font-size:9px;letter-spacing:.22em;text-transform:uppercase;
+  color:rgba(255,255,255,.50);
+  z-index:100;
+}
+
+#tracks{
+  position:fixed;top:38px;left:0;right:0;
+  display:flex;justify-content:center;gap:20px;
+  z-index:100;
+}
+
+#tracks button{
+  background:none;border:none;
+  border-bottom:1px solid rgba(255,255,255,.18);
+  color:rgba(255,255,255,.30);
+  font-family:monospace;font-size:7px;
+  letter-spacing:.16em;padding:2px 4px;
+  cursor:pointer;transition:all .2s;
+}
+
+#tracks button.active{
+  color:rgba(255,255,255,.80);
+  border-bottom-color:rgba(255,255,255,.60);
+}
+
+#clock{
+  position:fixed;top:16px;right:14px;
+  font-size:7px;letter-spacing:.10em;
+  color:rgba(255,255,255,.22);z-index:100;
+}
+
+canvas{
+  display:block;
+  width:min(400px,84vw);
+  height:min(400px,84vw);
+  cursor:pointer;
+}
+
+#status{
+  position:fixed;bottom:46px;left:0;right:0;
+  text-align:center;font-size:7px;letter-spacing:.18em;
+  color:rgba(255,255,255,.18);z-index:100;
+}
+
+#subs{
+  position:fixed;bottom:12px;
+  left:50%;transform:translateX(-50%);
+  width:min(580px,88vw);
+  min-height:2em;
+  text-align:center;
+  font-size:11px;line-height:1.5;
+  color:rgba(255,255,255,.55);
+  letter-spacing:.02em;
+  font-style:italic;
+  z-index:100;
+}
+
+#glitch-band{
+  position:fixed;left:0;right:0;height:2px;
+  background:rgba(255,255,255,.45);
+  pointer-events:none;z-index:902;display:none;
+}
+</style>
+</head>
+<body>
+
+<div id="screen">
+  <div id="title">—</div>
+  <div id="tracks"></div>
+  <span id="clock">00:00</span>
+  <canvas id="viz"></canvas>
+  <div id="status">[ click · play / pause ]</div>
+  <div id="subs"></div>
+</div>
+<div id="glitch-band"></div>
+<audio id="audio"></audio>
+
+<script>
+const tracks = [
+  {
+    file:"How_internal_rhythms_generate_physical_balance.mp3",
+    vtt:"How_internal_rhythms_generate_physical_balance.vtt",
+    label:"RHYTHM",
+    title:"HOW INTERNAL RHYTHMS GENERATE PHYSICAL BALANCE"
+  },
+  {
+    file:"Amplitwists_and_the_Living_Geometry_of_Circuits.mp3",
+    vtt:"Amplitwists_and_the_Living_Geometry_of_Circuits.vtt",
+    label:"GEOMETRY",
+    title:"AMPLITWISTS AND THE LIVING GEOMETRY OF CIRCUITS"
+  }
+];
+
+let idx = 0;
+
+const audio     = document.getElementById("audio");
+const subsEl    = document.getElementById("subs");
+const titleEl   = document.getElementById("title");
+const clockEl   = document.getElementById("clock");
+const screen    = document.getElementById("screen");
+const glitchBand= document.getElementById("glitch-band");
+const trackBtns = document.getElementById("tracks");
+
+let audioCtx, analyser, freqData, timeData;
+
+function initAudio(){
+  if(audioCtx) return;
+  audioCtx = new (window.AudioContext||window.webkitAudioContext)();
+  analyser = audioCtx.createAnalyser();
+  analyser.fftSize = 2048;
+  analyser.smoothingTimeConstant = .86;
+  freqData = new Uint8Array(analyser.frequencyBinCount);
+  timeData = new Uint8Array(analyser.fftSize);
+  const src = audioCtx.createMediaElementSource(audio);
+  src.connect(analyser);
+  analyser.connect(audioCtx.destination);
+}
+
+/* buttons */
+tracks.forEach((t,i)=>{
+  const btn = document.createElement("button");
+  btn.textContent = t.label;
+  btn.onclick = e=>{ e.stopPropagation(); initAudio(); loadTrack(i,true); };
+  trackBtns.appendChild(btn);
+});
+
+function updateButtons(){
+  [...trackBtns.querySelectorAll("button")]
+    .forEach((b,i)=>b.classList.toggle("active",i===idx));
+}
+
+/* load */
+function loadTrack(i, autoplay=false){
+  idx = ((i%tracks.length)+tracks.length)%tracks.length;
+  const t = tracks[idx];
+  titleEl.textContent = t.title;
+  audio.src = t.file;
+  audio.innerHTML = `<track kind="captions" src="${t.vtt}" default>`;
+  audio.load();
+  audio.addEventListener("loadedmetadata", attachTrack, {once:true});
+  updateButtons();
+  if(autoplay) audioCtx.resume().then(()=>audio.play());
+}
+
+function attachTrack(){
+  const t = audio.textTracks[0];
+  if(!t) return;
+  t.mode = "hidden";
+  t.oncuechange = ()=>{
+    const c = t.activeCues[0];
+    subsEl.textContent = c ? c.text : "";
+  };
+}
+
+audio.addEventListener("ended",()=>{ if(idx<tracks.length-1) loadTrack(idx+1,true); });
+
+audio.ontimeupdate = ()=>{
+  const t = audio.currentTime|0;
+  clockEl.textContent =
+    `${String(t/60|0).padStart(2,"0")}:${String(t%60).padStart(2,"0")}`;
+};
+
+/* click to play/pause */
+document.getElementById("viz").addEventListener("click",()=>{
+  initAudio();
+  audioCtx.resume().then(()=>{
+    if(!audio.src || audio.src==="") loadTrack(0,true);
+    else if(audio.paused) audio.play();
+    else audio.pause();
+  });
+});
+
+/* canvas */
+const canvas = document.getElementById("viz");
+const ctx    = canvas.getContext("2d");
+const SZ     = 512;
+canvas.width  = SZ;
+canvas.height = SZ;
+const cx = SZ/2, cy = SZ/2;
+
+let frame=0, bass=0, mid=0, high=0, vol=0, entropy=0;
+
+function updateEnergy(){
+  if(!analyser) return;
+  analyser.getByteFrequencyData(freqData);
+  analyser.getByteTimeDomainData(timeData);
+  let b=0,m=0,h=0,v=0;
+  for(let i=0;i<40;i++) b+=freqData[i];
+  for(let i=40;i<180;i++) m+=freqData[i];
+  for(let i=180;i<freqData.length;i++) h+=freqData[i];
+  for(let i=0;i<freqData.length;i++) v+=freqData[i];
+  bass+=(b/(40*255)-bass)*.08;
+  mid +=(m/(140*255)-mid)*.06;
+  high+=(h/((freqData.length-180)*255)-high)*.05;
+  vol +=(v/(freqData.length*255)-vol)*.07;
+  let sum=0,ent=0;
+  for(let i=0;i<freqData.length;i++) sum+=freqData[i];
+  if(sum>0){
+    for(let i=0;i<freqData.length;i++){
+      const p=freqData[i]/sum; if(p>0) ent-=p*Math.log2(p);
+    }
+    ent/=Math.log2(freqData.length);
+  }
+  entropy+=(ent-entropy)*.04;
+}
+
+/* glitch */
+let glitchActive=false,glitchTimer=0,glitchType=0,lastGlitch=0;
+function maybeGlitch(){
+  if(glitchActive||!analyser) return;
+  if(entropy<.70&&vol<.50) return;
+  if(frame-lastGlitch<100) return;
+  if(Math.random()>.014) return;
+  glitchActive=true; glitchTimer=0;
+  glitchType=Math.random()<.55?0:1;
+  lastGlitch=frame;
+}
+function applyGlitch(){
+  if(!glitchActive){
+    screen.style.transform="";
+    glitchBand.style.display="none";
+    return;
+  }
+  glitchTimer++;
+  const dur=glitchType===0?18:8;
+  if(glitchType===0){
+    const d=1-glitchTimer/dur;
+    screen.style.transform=`translate(${(Math.random()-.5)*6*d}px,${(Math.random()-.5)*1.5*d}px)`;
+    glitchBand.style.display="none";
+  } else {
+    glitchBand.style.display="block";
+    glitchBand.style.top=`${(glitchTimer/dur)*108-4}%`;
+    glitchBand.style.opacity=`${1-glitchTimer/dur}`;
+    screen.style.transform="";
+  }
+  if(glitchTimer>=dur){
+    glitchActive=false;
+    screen.style.transform="";
+    glitchBand.style.display="none";
+  }
+}
+
+/* ─────────────────────────────────────────────────
+   TRACK 0 — RHYTHM / BALANCE
+   Lissajous with a slow phase-walking lag — the
+   internal rhythm that never quite repeats, always
+   generating new balance from the same oscillation.
+   Secondary ghost trace one phase behind.
+───────────────────────────────────────────────── */
+
+let rhythmPhase = 0;
+
+function drawRhythm(){
+  rhythmPhase += .0018 + bass*.002;
+
+  const N   = timeData.length;
+  const lag = Math.floor(N*(.25 + Math.sin(rhythmPhase)*.12))&~1;
+
+  // ghost — the previous phase position, very faint
+  const lagGhost = Math.floor(N*(.25 + Math.sin(rhythmPhase-.38)*.12))&~1;
+  ctx.beginPath();
+  for(let i=0;i<N;i+=2){
+    const a=(timeData[i]-128)/128;
+    const b=(timeData[(i+lagGhost)%N]-128)/128;
+    if(i===0) ctx.moveTo(cx+a*SZ*.28,cy+b*SZ*.28);
+    else      ctx.lineTo(cx+a*SZ*.28,cy+b*SZ*.28);
+  }
+  ctx.strokeStyle="rgba(255,255,255,.06)";
+  ctx.lineWidth=.8; ctx.lineCap="round";
+  ctx.stroke();
+
+  // primary — phase walking, slightly asymmetric axes (balance ≠ symmetry)
+  ctx.beginPath();
+  for(let i=0;i<N;i+=2){
+    const a=(timeData[i]-128)/128;
+    const b=(timeData[(i+lag)%N]-128)/128;
+    if(i===0) ctx.moveTo(cx+a*SZ*.30,cy+b*SZ*.26);
+    else      ctx.lineTo(cx+a*SZ*.30,cy+b*SZ*.26);
+  }
+  ctx.strokeStyle=`rgba(255,255,255,${.52+mid*.22})`;
+  ctx.lineWidth=1.2+bass*.6;
+  ctx.shadowBlur=6+bass*10;
+  ctx.shadowColor="rgba(255,255,255,.4)";
+  ctx.stroke();
+  ctx.shadowBlur=0;
+}
+
+/* ─────────────────────────────────────────────────
+   TRACK 1 — AMPLITWIST / LIVING GEOMETRY
+   Amplitwist = amplitude × twist (complex derivative).
+   Two lissajous at different frequency ratios, one
+   rotating slowly around the other. The rotation IS
+   the geometric living-ness — the circuit that twists
+   as it amplifies. A third harmonic emerges at high
+   signal energy.
+───────────────────────────────────────────────── */
+
+let twistAngle = 0;
+
+function drawGeometry(){
+  twistAngle += .0024 + high*.003;
+
+  const N  = timeData.length;
+
+  // base lissajous — 3:2 ratio via independent lags
+  const lagA = Math.floor(N*.25)&~1;
+  const lagB = Math.floor(N*(.25 + .08 + mid*.04))&~1;
+
+  ctx.beginPath();
+  for(let i=0;i<N;i+=2){
+    const a=(timeData[i]-128)/128;
+    const b=(timeData[(i+lagA)%N]-128)/128;
+    if(i===0) ctx.moveTo(cx+a*SZ*.22,cy+b*SZ*.22);
+    else      ctx.lineTo(cx+a*SZ*.22,cy+b*SZ*.22);
+  }
+  ctx.strokeStyle=`rgba(255,255,255,${.20+mid*.08})`;
+  ctx.lineWidth=.8; ctx.stroke();
+
+  // rotating outer lissajous — the twist
+  ctx.save();
+  ctx.translate(cx,cy);
+  ctx.rotate(twistAngle);
+  ctx.beginPath();
+  for(let i=0;i<N;i+=2){
+    const a=(timeData[i]-128)/128;
+    const b=(timeData[(i+lagB)%N]-128)/128;
+    if(i===0) ctx.moveTo(a*SZ*.29,b*SZ*.25);
+    else      ctx.lineTo(a*SZ*.29,b*SZ*.25);
+  }
+  ctx.strokeStyle=`rgba(255,255,255,${.50+bass*.20})`;
+  ctx.lineWidth=1.3+bass*.5;
+  ctx.shadowBlur=7+bass*9;
+  ctx.shadowColor="rgba(255,255,255,.35)";
+  ctx.stroke();
+  ctx.shadowBlur=0;
+  ctx.restore();
+
+  // harmonic emergence — third trace appears at high signal energy
+  if(vol>.28){
+    const lagC = Math.floor(N*(.33+high*.06))&~1;
+    ctx.save();
+    ctx.translate(cx,cy);
+    ctx.rotate(-twistAngle*.62);
+    ctx.beginPath();
+    for(let i=0;i<N;i+=2){
+      const a=(timeData[i]-128)/128;
+      const b=(timeData[(i+lagC)%N]-128)/128;
+      if(i===0) ctx.moveTo(a*SZ*.18,b*SZ*.18);
+      else      ctx.lineTo(a*SZ*.18,b*SZ*.18);
+    }
+    ctx.strokeStyle=`rgba(255,255,255,${(vol-.28)/.72*.28})`;
+    ctx.lineWidth=.7;
+    ctx.stroke();
+    ctx.restore();
+  }
+}
+
+/* main loop */
+function draw(){
+  frame++;
+  updateEnergy();
+  maybeGlitch();
+  applyGlitch();
+
+  // phosphor persistence
+  ctx.fillStyle="rgba(0,0,0,.15)";
+  ctx.fillRect(0,0,SZ,SZ);
+
+  if(analyser){
+    if(idx===0) drawRhythm();
+    else        drawGeometry();
+  } else {
+    // idle dot
+    ctx.beginPath();
+    ctx.arc(cx,cy,3+Math.sin(frame*.04)*1.5,0,Math.PI*2);
+    ctx.fillStyle="rgba(255,255,255,.20)";
+    ctx.fill();
+  }
+
+  requestAnimationFrame(draw);
+}
+
+loadTrack(0, false);
+draw();
+</script>
+</body>
+</html>
